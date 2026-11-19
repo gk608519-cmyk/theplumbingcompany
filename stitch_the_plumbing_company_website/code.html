@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Plumbing Company | Reliable Plumbing Solutions You Can Trust</title>
+<meta content="Dependable commercial and residential plumbing services since 2005. Emergency plumbing, pipe repair, water heaters, and drain cleaning." name="description"/>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              burgundy: '#741C27',
+              maroon: '#4A1019',
+              silver: '#B8B9BC',
+              silverLight: '#E2E3E5',
+              charcoal: '#171719',
+              dark: '#0F0F11',
+              greyBg: '#F4F4F5',
+              surface: '#FCF8FB'
+            }
+          },
+          fontFamily: {
+            heading: ['Montserrat', 'sans-serif'],
+            body: ['Plus Jakarta Sans', 'sans-serif']
+          },
+          boxShadow: {
+            'premium': '0 10px 30px -10px rgba(23, 23, 25, 0.08), 0 4px 6px -2px rgba(23, 23, 25, 0.04)',
+            'card-hover': '0 20px 35px -12px rgba(116, 28, 39, 0.15), 0 8px 10px -4px rgba(23, 23, 25, 0.05)',
+            'burgundy-glow': '0 10px 25px -5px rgba(116, 28, 39, 0.35)'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #171719;
+      background-color: #FFFFFF;
+      overflow-x: hidden;
+    }
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Montserrat', sans-serif;
+    }
+    .metallic-border {
+      border: 1px solid rgba(184, 185, 188, 0.35);
+    }
+    .custom-gradient-bg {
+      background: radial-gradient(circle at 90% 10%, rgba(116, 28, 39, 0.04) 0%, transparent 60%),
+                  linear-gradient(180deg, #FFFFFF 0%, #F4F4F5 100%);
+    }
+    .transition-all-300 {
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Keyframe Animations */
+    @keyframes heroFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes heroFloatBadge {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+    @keyframes pulseRing {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+      }
+    }
+    @keyframes floatWhatsApp {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+    @keyframes buttonShimmer {
+      0% {
+        transform: translateX(-100%) skewX(-15deg);
+      }
+      100% {
+        transform: translateX(200%) skewX(-15deg);
+      }
+    }
+
+    /* Animation Classes */
+    .animate-hero-up {
+      animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    .animate-hero-up-delay-1 {
+      animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+    }
+    .animate-hero-up-delay-2 {
+      animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
+    }
+    .animate-hero-up-delay-3 {
+      animation: heroFadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.45s both;
+    }
+    .animate-float {
+      animation: heroFloatBadge 5s ease-in-out infinite;
+    }
+    .animate-pulse-ring {
+      animation: pulseRing 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    .animate-float-wa {
+      animation: floatWhatsApp 3.5s ease-in-out infinite;
+    }
+
+    /* Shimmer Button Effect */
+    .btn-shimmer {
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-shimmer::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -60%;
+      width: 40%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.28) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: skewX(-20deg);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .btn-shimmer:hover::after {
+      opacity: 1;
+      animation: buttonShimmer 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Scroll Reveal Utilities */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-35px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(35px);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.active,
+    .reveal-left.active,
+    .reveal-right.active {
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    /* Staggered Delay Helpers */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+    .delay-500 { transition-delay: 500ms; }
+
+    /* Accessibility: Respect Reduced Motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, ::before, ::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .reveal, .reveal-left, .reveal-right {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-burgundy selection:text-white">
+<!-- ==================== TOP ANNOUNCEMENT / UTILITY BAR ==================== -->
+<div class="bg-brand-charcoal text-white text-xs py-2 px-4 border-b border-white/10 hidden md:block transition-colors duration-300">
+<div class="max-w-7xl mx-auto flex justify-between items-center">
+<div class="flex items-center space-x-6 text-brand-silver">
+<span class="flex items-center gap-1.5 hover:text-white transition-colors duration-200"><svg class="lucide lucide-shield-check w-3.5 h-3.5 text-brand-burgundy" data-lucide="shield-check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg> Licensed, Bonded &amp; Insured</span>
+<span class="flex items-center gap-1.5 hover:text-white transition-colors duration-200"><svg class="lucide lucide-clock w-3.5 h-3.5 text-brand-burgundy" data-lucide="clock" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg> 24/7 Emergency Response Available</span>
+<span class="flex items-center gap-1.5 hover:text-white transition-colors duration-200"><svg class="lucide lucide-award w-3.5 h-3.5 text-brand-burgundy" data-lucide="award" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path><circle cx="12" cy="8" r="6"></circle></svg> Serving American Homes &amp; Businesses Since 2005</span>
+</div>
+<div class="flex items-center space-x-6">
+<a class="flex items-center gap-1.5 text-brand-silverLight hover:text-white font-medium transition-colors duration-200 transform hover:scale-105" href="tel:18005550199">
+<svg class="lucide lucide-phone-call w-3.5 h-3.5 text-brand-burgundy" data-lucide="phone-call" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg> Call Today: <span class="text-white font-bold">[1-800-555-0199]</span>
+</a>
+<span class="text-white/20">|</span>
+<a class="flex items-center gap-1.5 text-brand-silverLight hover:text-white transition-colors duration-200" href="mailto:service@theplumbingcompany.com">
+<svg class="lucide lucide-mail w-3.5 h-3.5" data-lucide="mail" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect height="16" rx="2" width="20" x="2" y="4"></rect></svg> [service@theplumbingcompany.com]
+        </a>
+</div>
+</div>
+</div>
+<!-- ==================== SECTION 2: HEADER / STICKY NAV ==================== -->
+<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-silverLight/50 shadow-sm transition-all duration-300">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex items-center justify-between h-20">
+<!-- Left: Brand Logo -->
+<a class="flex items-center space-x-3 group" href="#">
+<img alt="The Plumbing Company Logo" class="h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105 group-hover:rotate-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr_7KDrpvqDSDdegaueIpR5IsLstgCbQ_Nssol3IWOvtuPe5bjj5t_4ye0yAMiNL9kyZF2XT3oOhph9JLAa5biN50qK26CR0oKF7J7gP3twmwLjX_1zl11TOE2FKRCSnPnvv7Khsofosb7eNyDSsYUuTvqwH1rIrrc8WbFVqLR9P4qghITIykscYMo0RdHKgBZ9tbUbfs9GDpAE525YDm5K3BKNRXBB6FATor1FPbpU90aE-mlY2L_xA"/>
+</a>
+<!-- Right: Navigation Links -->
+<nav class="hidden lg:flex items-center space-x-8">
+<a class="relative py-1 text-sm font-semibold tracking-wide text-brand-charcoal hover:text-brand-burgundy transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-burgundy after:scale-x-100 after:transition-transform" href="#hero">Home</a>
+<a class="relative py-1 text-sm font-semibold tracking-wide text-gray-600 hover:text-brand-burgundy transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-burgundy after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#about">About Us</a>
+<a class="relative py-1 text-sm font-semibold tracking-wide text-gray-600 hover:text-brand-burgundy transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-burgundy after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#services">Services</a>
+<a class="relative py-1 text-sm font-semibold tracking-wide text-gray-600 hover:text-brand-burgundy transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-burgundy after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#why-us">Why Choose Us</a>
+<a class="relative py-1 text-sm font-semibold tracking-wide text-gray-600 hover:text-brand-burgundy transition-colors duration-300 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-burgundy after:scale-x-0 hover:after:scale-x-100 after:transition-transform" href="#contact">Contact</a>
+</nav>
+<!-- CTA Button & Mobile Toggle -->
+<div class="flex items-center space-x-4">
+<a class="btn-shimmer hidden sm:inline-flex items-center gap-2 bg-brand-burgundy hover:bg-brand-maroon text-white text-xs md:text-sm font-bold uppercase tracking-wider px-6 py-3 rounded-lg shadow-burgundy-glow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0" href="#contact">
+<span>REQUEST A SERVICE</span>
+<svg class="lucide lucide-arrow-right w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" data-lucide="arrow-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a>
+<!-- Mobile Hamburger -->
+<button aria-label="Toggle Menu" class="lg:hidden p-2 rounded-md text-brand-charcoal hover:bg-gray-100 focus:outline-none transition-colors duration-200" id="mobileMenuBtn">
+<svg class="lucide lucide-menu w-6 h-6" data-lucide="menu" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 12h16"></path><path d="M4 18h16"></path><path d="M4 6h16"></path></svg>
+</button>
+</div>
+</div>
+</div>
+<!-- Mobile Navigation Drawer -->
+<div class="hidden lg:hidden border-t border-gray-200 bg-white px-4 pt-3 pb-6 space-y-3 transition-all duration-300" id="mobileMenu">
+<a class="block py-2 text-base font-semibold text-brand-charcoal hover:text-brand-burgundy transition-colors" href="#hero">Home</a>
+<a class="block py-2 text-base font-semibold text-gray-700 hover:text-brand-burgundy transition-colors" href="#about">About Us</a>
+<a class="block py-2 text-base font-semibold text-gray-700 hover:text-brand-burgundy transition-colors" href="#services">Services</a>
+<a class="block py-2 text-base font-semibold text-gray-700 hover:text-brand-burgundy transition-colors" href="#why-us">Why Choose Us</a>
+<a class="block py-2 text-base font-semibold text-gray-700 hover:text-brand-burgundy transition-colors" href="#contact">Contact</a>
+<a class="w-full text-center block bg-brand-burgundy text-white font-bold text-sm uppercase py-3 rounded-lg mt-3 shadow-md hover:bg-brand-maroon transition-colors" href="#contact">REQUEST A SERVICE</a>
+</div>
+</header>
+<!-- ==================== SECTION 3: HERO SECTION ==================== -->
+<section class="relative custom-gradient-bg py-16 lg:py-24 overflow-hidden border-b border-gray-200" id="hero">
+<!-- Decorative background elements -->
+<div class="absolute -top-32 -left-32 w-96 h-96 bg-brand-burgundy/5 rounded-full blur-3xl pointer-events-none animate-pulse" style="animation-duration: 7s;"></div>
+<div class="absolute top-1/2 -right-32 w-96 h-96 bg-brand-silver/20 rounded-full blur-3xl pointer-events-none animate-pulse" style="animation-duration: 9s;"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+<!-- Left Column: Bold Copy & CTAs -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Badge -->
+<div class="animate-hero-up inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-burgundy/10 border border-brand-burgundy/20 text-brand-burgundy text-xs font-bold tracking-widest uppercase transition-all duration-300 hover:bg-brand-burgundy/15 hover:scale-105">
+<span class="w-2 h-2 rounded-full bg-brand-burgundy animate-ping"></span>
+            Professional Plumbing Contractors
+          </div>
+<!-- Main Heading -->
+<h1 class="animate-hero-up-delay-1 text-4xl sm:text-5xl lg:text-6xl font-black uppercase tracking-tight text-brand-charcoal leading-[1.1]">
+            RELIABLE PLUMBING <span class="text-brand-burgundy underline decoration-brand-silver/40 decoration-4 underline-offset-8">SOLUTIONS</span> YOU CAN TRUST
+          </h1>
+<!-- Supporting Text -->
+<p class="animate-hero-up-delay-2 text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl font-normal">
+            From emergency plumbing repairs to complete plumbing installations, we deliver dependable solutions with professional workmanship and quality service.
+          </p>
+<!-- CTA Buttons -->
+<div class="animate-hero-up-delay-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+<a class="btn-shimmer group inline-flex justify-center items-center gap-2 bg-brand-burgundy hover:bg-brand-maroon text-white font-bold text-sm tracking-wider uppercase px-8 py-4 rounded-lg shadow-burgundy-glow hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0" href="#contact">
+<span>BOOK A SERVICE</span>
+<svg class="lucide lucide-calendar w-4 h-4 transition-transform group-hover:scale-110" data-lucide="calendar" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M3 10h18"></path></svg>
+</a>
+<a class="inline-flex justify-center items-center gap-2 bg-white hover:bg-gray-50 text-brand-charcoal font-bold text-sm tracking-wider uppercase px-8 py-4 rounded-lg border-2 border-brand-silver/60 hover:border-brand-burgundy hover:text-brand-burgundy transition-all duration-300 shadow-sm transform hover:-translate-y-0.5" href="#services">
+<span>EXPLORE OUR SERVICES</span>
+<svg class="lucide lucide-chevron-right w-4 h-4 text-brand-burgundy transition-transform group-hover:translate-x-1" data-lucide="chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"></path></svg>
+</a>
+</div>
+<!-- Trust Indicators -->
+<div class="animate-hero-up-delay-3 pt-8 border-t border-gray-200/80 grid grid-cols-3 gap-4">
+<div class="flex items-center space-x-3 group cursor-default">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 flex items-center justify-center text-brand-burgundy flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-brand-burgundy group-hover:text-white">
+<svg class="lucide lucide-history w-5 h-5" data-lucide="history" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"></path></svg>
+</div>
+<div>
+<p class="text-xs text-gray-500 font-medium">Established</p>
+<p class="text-xs sm:text-sm font-bold text-brand-charcoal">Serving Since 2005</p>
+</div>
+</div>
+<div class="flex items-center space-x-3 group cursor-default">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 flex items-center justify-center text-brand-burgundy flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-brand-burgundy group-hover:text-white">
+<svg class="lucide lucide-wrench w-5 h-5" data-lucide="wrench" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+</div>
+<div>
+<p class="text-xs text-gray-500 font-medium">Workmanship</p>
+<p class="text-xs sm:text-sm font-bold text-brand-charcoal">Professional Solutions</p>
+</div>
+</div>
+<div class="flex items-center space-x-3 group cursor-default">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 flex items-center justify-center text-brand-burgundy flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-brand-burgundy group-hover:text-white">
+<svg class="lucide lucide-check-circle-2 w-5 h-5" data-lucide="check-circle-2" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+</div>
+<div>
+<p class="text-xs text-gray-500 font-medium">Guaranteed</p>
+<p class="text-xs sm:text-sm font-bold text-brand-charcoal">Reliable &amp; Quality Work</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Realistic Plumber Image in Modern Hero Frame -->
+<div class="lg:col-span-5 relative animate-hero-up-delay-2">
+<div class="relative mx-auto max-w-md lg:max-w-none">
+<!-- Metallic Frame Accents -->
+<div class="absolute -inset-2 rounded-2xl bg-gradient-to-tr from-brand-burgundy via-brand-silver to-brand-maroon opacity-30 blur-sm"></div>
+<div class="relative rounded-2xl overflow-hidden bg-brand-charcoal border-2 border-brand-silver/40 shadow-2xl transition-all-300 hover:shadow-burgundy-glow group">
+<img alt="Licensed Master Plumber inspecting pipe installation" class="w-full h-[460px] object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida/ALJJyrD8xDTHoxOjkB-IbCOfvHddLNKGufuFoUIebmz-X7cxO6vUB7sRzHw31z7WEa5UlNPvKJ0tYq2hj8YKJ04SafyC8NNRTOTk6fG1GSFp9mq30y3shYMuEhAjjRlZYarkEKGhPV2oirQ0_x7tzL2oRfIPMbYNbYcZkv8x2I0fPpSp3MphDBYYQq2uzriWQWg8MFLlAdLGWgh6YdYj3xCwvfSKHGsLU6XHYcar94ii2V8Shw"/>
+<!-- Floating Overlay Badge -->
+<div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-sm p-4 rounded-xl shadow-lg border border-brand-silver/30 flex items-center justify-between transition-transform duration-300 hover:-translate-y-1">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-brand-burgundy text-white flex items-center justify-center font-bold shadow-md transition-transform duration-300 hover:scale-110">
+<svg class="lucide lucide-phone w-5 h-5" data-lucide="phone" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+</div>
+<div>
+<span class="text-[11px] font-bold uppercase tracking-wider text-brand-burgundy block">24/7 Rapid Dispatch</span>
+<span class="text-sm font-extrabold text-brand-charcoal">[1-800-555-0199]</span>
+</div>
+</div>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-emerald-50 text-emerald-700 text-xs font-bold border border-emerald-200">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Online Now
+                </span>
+</div>
+</div>
+<!-- Experience Badge Element -->
+<div class="animate-float absolute -top-4 -right-4 bg-brand-charcoal text-white p-3.5 rounded-xl border border-brand-silver/50 shadow-xl hidden sm:flex items-center gap-3 transition-transform duration-300 hover:scale-105">
+<div class="p-2 bg-brand-burgundy rounded-lg">
+<svg class="lucide lucide-shield w-5 h-5 text-white" data-lucide="shield" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+</div>
+<div class="text-left pr-2">
+<div class="text-xs text-brand-silver font-semibold uppercase tracking-wider">Certified</div>
+<div class="text-sm font-extrabold text-white">Master Technicians</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 4: OUR PLUMBING SERVICES ==================== -->
+<section class="py-20 bg-white" id="services">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<!-- Section Header -->
+<div class="reveal text-center max-w-3xl mx-auto mb-16 space-y-3">
+<span class="text-xs font-extrabold tracking-widest uppercase text-brand-burgundy">Engineered For Excellence</span>
+<h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-brand-charcoal">
+          OUR PLUMBING SERVICES
+        </h2>
+<div class="w-16 h-1 bg-brand-burgundy mx-auto rounded-full"></div>
+<p class="text-gray-600 text-sm sm:text-base pt-2">
+          Comprehensive commercial and residential solutions backed by precision equipment, transparent upfront quotes, and clean job sites.
+        </p>
+</div>
+<!-- 3 Primary Service Cards (Card 2 Featured Burgundy) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+<!-- Card 1: Leak Repair -->
+<div class="reveal delay-100 bg-white rounded-2xl p-8 border border-gray-200 shadow-premium hover:shadow-card-hover transition-all-300 transform hover:-translate-y-2 hover:scale-[1.01] flex flex-col justify-between group">
+<div>
+<div class="w-14 h-14 rounded-xl bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center mb-6 group-hover:bg-brand-burgundy group-hover:text-white group-hover:rotate-6 transition-all duration-300 shadow-sm">
+<svg class="lucide lucide-droplets w-7 h-7" data-lucide="droplets" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"></path><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"></path></svg>
+</div>
+<h3 class="text-xl font-bold uppercase tracking-tight text-brand-charcoal mb-3 group-hover:text-brand-burgundy transition-colors duration-300">
+              Leak Repair
+            </h3>
+<p class="text-gray-600 text-sm leading-relaxed mb-6">
+              Professional detection and repair of leaking pipes, faucets, and plumbing fixtures. We stop hidden water damage before it compromises your property structure.
+            </p>
+<ul class="text-xs text-gray-500 space-y-2 mb-6 border-t border-gray-100 pt-4">
+<li class="flex items-center gap-2"><svg class="lucide lucide-check w-4 h-4 text-brand-burgundy" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg> Acoustic leak pinpointing</li>
+<li class="flex items-center gap-2"><svg class="lucide lucide-check w-4 h-4 text-brand-burgundy" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg> Slab leak diagnosis &amp; fix</li>
+<li class="flex items-center gap-2"><svg class="lucide lucide-check w-4 h-4 text-brand-burgundy" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg> Fixture &amp; valve rebuilds</li>
+</ul>
+</div>
+<a class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-burgundy hover:text-brand-maroon gap-1 group-hover:gap-2 transition-all" href="#contact">
+<span>Learn More</span>
+<svg class="lucide lucide-arrow-right w-4 h-4 transition-transform group-hover:translate-x-1" data-lucide="arrow-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a>
+</div>
+<!-- Card 2: Pipe Installation & Repair (FEATURED DARK BURGUNDY CARD) -->
+<div class="reveal delay-200 bg-brand-burgundy text-white rounded-2xl p-8 border-2 border-brand-maroon shadow-2xl relative transform md:-translate-y-2 hover:-translate-y-4 hover:scale-[1.02] transition-all-300 flex flex-col justify-between group">
+<div class="absolute -top-3.5 right-6 bg-brand-charcoal text-white text-[10px] font-extrabold uppercase tracking-widest py-1 px-3 rounded-full border border-brand-silver/30 shadow-md">
+            Most Requested
+          </div>
+<div>
+<div class="w-14 h-14 rounded-xl bg-white/15 text-white flex items-center justify-center mb-6 backdrop-blur-sm group-hover:scale-110 group-hover:bg-white/25 transition-all duration-300">
+<svg class="lucide lucide-git-commit w-7 h-7 text-white" data-lucide="git-commit" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="3"></circle><line x1="3" x2="9" y1="12" y2="12"></line><line x1="15" x2="21" y1="12" y2="12"></line></svg>
+</div>
+<h3 class="text-xl font-bold uppercase tracking-tight text-white mb-3">
+              Pipe Installation &amp; Repair
+            </h3>
+<p class="text-white/80 text-sm leading-relaxed mb-6">
+              Reliable pipe installation, replacement, maintenance, and plumbing system repairs. Built to high-pressure municipal and commercial code.
+            </p>
+<ul class="text-xs text-white/70 space-y-2 mb-6 border-t border-white/20 pt-4">
+<li class="flex items-center gap-2"><svg class="lucide lucide-check w-4 h-4 text-white" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg> Copper &amp; PEX re-piping</li>
+<li class="flex items-center gap-2"><svg class="lucide lucide-check w-4 h-4 text-white" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg> Main line water service replacements</li>
+<li class="flex items-center gap-2"><svg class="lucide lucide-check w-4 h-4 text-white" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg> Manifold &amp; pressure regulator setups</li>
+</ul>
+</div>
+<a class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-white hover:text-brand-silverLight gap-1 group-hover:gap-2 transition-all" href="#contact">
+<span>Learn More</span>
+<svg class="lucide lucide-arrow-right w-4 h-4 transition-transform group-hover:translate-x-1" data-lucide="arrow-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a>
+</div>
+<!-- Card 3: Drain Cleaning -->
+<div class="reveal delay-300 bg-white rounded-2xl p-8 border border-gray-200 shadow-premium hover:shadow-card-hover transition-all-300 transform hover:-translate-y-2 hover:scale-[1.01] flex flex-col justify-between group">
+<div>
+<div class="w-14 h-14 rounded-xl bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center mb-6 group-hover:bg-brand-burgundy group-hover:text-white group-hover:rotate-6 transition-all duration-300 shadow-sm">
+<svg class="lucide lucide-waves w-7 h-7" data-lucide="waves" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M2 6c.6.5 1.2 1 2.5 1C7 7 7 5 9.5 5c2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path><path d="M2 12c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path><path d="M2 18c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 2.6 0 2.4 2 5 2 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"></path></svg>
+</div>
+<h3 class="text-xl font-bold uppercase tracking-tight text-brand-charcoal mb-3 group-hover:text-brand-burgundy transition-colors duration-300">
+              Drain Cleaning
+            </h3>
+<p class="text-gray-600 text-sm leading-relaxed mb-6">
+              Effective drain cleaning and blockage removal to keep your plumbing system running smoothly. Hydro-jetting and high-definition video inspection.
+            </p>
+<ul class="text-xs text-gray-500 space-y-2 mb-6 border-t border-gray-100 pt-4">
+<li class="flex items-center gap-2"><svg class="lucide lucide-check w-4 h-4 text-brand-burgundy" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg> Video camera line scoping</li>
+<li class="flex items-center gap-2"><svg class="lucide lucide-check w-4 h-4 text-brand-burgundy" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg> Industrial hydro-jet scouring</li>
+<li class="flex items-center gap-2"><svg class="lucide lucide-check w-4 h-4 text-brand-burgundy" data-lucide="check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 6 9 17l-5-5"></path></svg> Root intrusion remediation</li>
+</ul>
+</div>
+<a class="inline-flex items-center text-xs font-bold uppercase tracking-wider text-brand-burgundy hover:text-brand-maroon gap-1 group-hover:gap-2 transition-all" href="#contact">
+<span>Learn More</span>
+<svg class="lucide lucide-arrow-right w-4 h-4 transition-transform group-hover:translate-x-1" data-lucide="arrow-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a>
+</div>
+</div>
+<!-- Additional Services Grid -->
+<div class="reveal bg-brand-greyBg rounded-2xl p-8 lg:p-10 border border-gray-200">
+<div class="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-6 border-b border-gray-200">
+<div>
+<h4 class="text-xl font-bold uppercase tracking-tight text-brand-charcoal">Complete Specialization Catalog</h4>
+<p class="text-sm text-gray-600">Every residential, multi-family, and commercial requirement handled end-to-end.</p>
+</div>
+<a class="mt-4 md:mt-0 text-xs font-bold uppercase tracking-wider text-brand-burgundy hover:underline flex items-center gap-1 group" href="#contact">
+<span>Request Custom Service Quote</span> <svg class="lucide lucide-chevron-right w-4 h-4 transition-transform group-hover:translate-x-1" data-lucide="chevron-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m9 18 6-6-6-6"></path></svg>
+</a>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="reveal delay-100 bg-white p-5 rounded-xl border border-gray-200/80 shadow-sm flex items-start space-x-4 hover:border-brand-burgundy/40 hover:-translate-y-1 hover:shadow-md transition-all-300">
+<div class="w-10 h-10 rounded-lg bg-red-100 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 hover:scale-110">
+<svg class="lucide lucide-alert-octagon w-5 h-5" data-lucide="alert-octagon" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16h.01"></path><path d="M12 8v4"></path><path d="M15.312 2a2 2 0 0 1 1.414.586l4.688 4.688A2 2 0 0 1 22 8.688v6.624a2 2 0 0 1-.586 1.414l-4.688 4.688a2 2 0 0 1-1.414.586H8.688a2 2 0 0 1-1.414-.586l-4.688-4.688A2 2 0 0 1 2 15.312V8.688a2 2 0 0 1 .586-1.414l4.688-4.688A2 2 0 0 1 8.688 2z"></path></svg>
+</div>
+<div>
+<h5 class="text-sm font-bold text-brand-charcoal uppercase">Emergency Plumbing</h5>
+<p class="text-xs text-gray-500 mt-1">24/7 rapid dispatch for burst pipes, sewage backup, and critical failures.</p>
+</div>
+</div>
+<div class="reveal delay-200 bg-white p-5 rounded-xl border border-gray-200/80 shadow-sm flex items-start space-x-4 hover:border-brand-burgundy/40 hover:-translate-y-1 hover:shadow-md transition-all-300">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 hover:scale-110">
+<svg class="lucide lucide-flame w-5 h-5" data-lucide="flame" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+</div>
+<div>
+<h5 class="text-sm font-bold text-brand-charcoal uppercase">Water Heater Services</h5>
+<p class="text-xs text-gray-500 mt-1">Tankless &amp; traditional boiler repairs, descaling, and high-efficiency installs.</p>
+</div>
+</div>
+<div class="reveal delay-300 bg-white p-5 rounded-xl border border-gray-200/80 shadow-sm flex items-start space-x-4 hover:border-brand-burgundy/40 hover:-translate-y-1 hover:shadow-md transition-all-300">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 hover:scale-110">
+<svg class="lucide lucide-bath w-5 h-5" data-lucide="bath" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M10 4 8 6"></path><path d="M17 19v2"></path><path d="M2 12h20"></path><path d="M7 19v2"></path><path d="M9 5 7.621 3.621A2.121 2.121 0 0 0 4 5v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5"></path></svg>
+</div>
+<div>
+<h5 class="text-sm font-bold text-brand-charcoal uppercase">Bathroom Plumbing</h5>
+<p class="text-xs text-gray-500 mt-1">Showers, custom drain valves, luxury bathtubs, and vanity rough-ins.</p>
+</div>
+</div>
+<div class="reveal delay-100 bg-white p-5 rounded-xl border border-gray-200/80 shadow-sm flex items-start space-x-4 hover:border-brand-burgundy/40 hover:-translate-y-1 hover:shadow-md transition-all-300">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 hover:scale-110">
+<svg class="lucide lucide-hammer w-5 h-5" data-lucide="hammer" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"></path><path d="m18 15 4-4"></path><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"></path></svg>
+</div>
+<div>
+<h5 class="text-sm font-bold text-brand-charcoal uppercase">Faucet &amp; Fixture Installation</h5>
+<p class="text-xs text-gray-500 mt-1">Kitchen sinks, designer faucets, garbage disposals, and filtration units.</p>
+</div>
+</div>
+<div class="reveal delay-200 bg-white p-5 rounded-xl border border-gray-200/80 shadow-sm flex items-start space-x-4 hover:border-brand-burgundy/40 hover:-translate-y-1 hover:shadow-md transition-all-300">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 hover:scale-110">
+<svg class="lucide lucide-disc w-5 h-5" data-lucide="disc" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+</div>
+<div>
+<h5 class="text-sm font-bold text-brand-charcoal uppercase">Toilet Repair</h5>
+<p class="text-xs text-gray-500 mt-1">Clog clearing, flange repairs, low-flow retrofits, and smart bidet piping.</p>
+</div>
+</div>
+<div class="reveal delay-300 bg-white p-5 rounded-xl border border-gray-200/80 shadow-sm flex items-start space-x-4 hover:border-brand-burgundy/40 hover:-translate-y-1 hover:shadow-md transition-all-300">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 hover:scale-110">
+<svg class="lucide lucide-settings w-5 h-5" data-lucide="settings" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+</div>
+<div>
+<h5 class="text-sm font-bold text-brand-charcoal uppercase">General Plumbing Maintenance</h5>
+<p class="text-xs text-gray-500 mt-1">Preventative inspections, water pressure regulation, and seasonal freeze prep.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 5: ABOUT THE COMPANY ==================== -->
+<section class="py-20 bg-brand-greyBg border-t border-b border-gray-200" id="about">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left: Realistic Photograph of Installation Technician -->
+<div class="reveal-left lg:col-span-6 relative">
+<div class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-brand-silver/50 group">
+<img alt="Professional technician installing modern plumbing and manifold system" class="w-full h-[480px] object-cover group-hover:scale-105 transition-transform duration-700 ease-out" src="https://lh3.googleusercontent.com/aida/ALJJyrAwQQrc8tLgPd392PCimVPicYaVXXtwc4UhtzNGauhUu6G09wpsfdyc1-TnU30oLi3Ny-srVdIfN3Y4iRB3b14C2YEy4eQ1pM4HCCQBO9GNAGn7GMgcWWu5jS0D_X_2LMrTMb_gPRGb0mCCOVbT1j_M3L_YWVqEUylnTNqM2MnYM14Gpm8xbnqPV77Z-C7T1a8NX6S1DGTwIRKTohkTi9W9b4KtT36JNm14CQmfIL3leg"/>
+<div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/40 to-transparent p-6 text-white transition-opacity duration-300">
+<p class="text-xs font-bold uppercase tracking-wider text-brand-silver">Field Certified Installation</p>
+<p class="text-sm text-white/90">Precision manifold layout &amp; high-efficiency system commissioning.</p>
+</div>
+</div>
+<!-- Decorative accent corner -->
+<div class="absolute -bottom-4 -left-4 w-24 h-24 bg-brand-burgundy/20 rounded-xl -z-10 animate-pulse"></div>
+</div>
+<!-- Right: Content Column -->
+<div class="reveal-right lg:col-span-6 space-y-6">
+<div class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-widest text-brand-burgundy">
+<svg class="lucide lucide-history w-4 h-4" data-lucide="history" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path><path d="M12 7v5l4 2"></path></svg> Two Decades of Proven Service
+          </div>
+<h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-brand-charcoal leading-tight">
+            YOUR TRUSTED PLUMBING EXPERTS SINCE 2005
+          </h2>
+<p class="text-gray-700 text-base leading-relaxed">
+            At The Plumbing Company, we believe in providing dependable plumbing solutions backed by experience, quality workmanship, and customer-focused service. Our goal is to make every plumbing job simple, efficient, and hassle-free.
+          </p>
+<p class="text-gray-600 text-sm leading-relaxed">
+            Whether troubleshooting complex water pressure anomalies or constructing state-of-the-art commercial piping infrastructure, our licensed technicians bring unmatched attention to detail and honest recommendations to every project.
+          </p>
+<div class="grid grid-cols-2 gap-4 py-3">
+<div class="flex items-center space-x-2 text-sm font-bold text-brand-charcoal group">
+<svg class="lucide lucide-check-circle w-5 h-5 text-brand-burgundy transition-transform group-hover:scale-110" data-lucide="check-circle" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+<span>Fully Licensed &amp; Insured</span>
+</div>
+<div class="flex items-center space-x-2 text-sm font-bold text-brand-charcoal group">
+<svg class="lucide lucide-check-circle w-5 h-5 text-brand-burgundy transition-transform group-hover:scale-110" data-lucide="check-circle" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+<span>Upfront Flat-Rate Pricing</span>
+</div>
+<div class="flex items-center space-x-2 text-sm font-bold text-brand-charcoal group">
+<svg class="lucide lucide-check-circle w-5 h-5 text-brand-burgundy transition-transform group-hover:scale-110" data-lucide="check-circle" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+<span>Clean Worksite Guarantee</span>
+</div>
+<div class="flex items-center space-x-2 text-sm font-bold text-brand-charcoal group">
+<svg class="lucide lucide-check-circle w-5 h-5 text-brand-burgundy transition-transform group-hover:scale-110" data-lucide="check-circle" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+<span>Modern Diagnostic Tools</span>
+</div>
+</div>
+<div class="pt-2">
+<a class="btn-shimmer group inline-flex items-center gap-2 bg-brand-charcoal hover:bg-brand-burgundy text-white text-xs font-bold uppercase tracking-wider px-7 py-3.5 rounded-lg transition-colors duration-300 shadow-md transform hover:-translate-y-0.5" href="#services">
+<span>LEARN MORE</span>
+<svg class="lucide lucide-arrow-right w-4 h-4 transition-transform group-hover:translate-x-1" data-lucide="arrow-right" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 6: WHY CHOOSE US ==================== -->
+<section class="py-20 bg-white" id="why-us">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="reveal text-center max-w-3xl mx-auto mb-16 space-y-3">
+<span class="text-xs font-extrabold tracking-widest uppercase text-brand-burgundy">The Standard of Reliability</span>
+<h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-brand-charcoal">
+          WHY CHOOSE US
+        </h2>
+<div class="w-16 h-1 bg-brand-burgundy mx-auto rounded-full"></div>
+<p class="text-gray-600 text-sm sm:text-base pt-2">
+          We treat your home and commercial property with the utmost respect, delivering plumbing work that lasts decades.
+        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+<!-- Block 1 -->
+<div class="reveal delay-100 bg-brand-greyBg p-8 rounded-2xl border border-gray-200 hover:border-brand-burgundy/50 hover:bg-white hover:shadow-card-hover transition-all-300 transform hover:-translate-y-1.5 text-center group">
+<div class="w-16 h-16 rounded-2xl bg-white border border-gray-200 flex items-center justify-center mx-auto mb-6 text-brand-burgundy group-hover:bg-brand-burgundy group-hover:text-white group-hover:rotate-6 transition-all shadow-sm">
+<svg class="lucide lucide-user-check w-8 h-8" data-lucide="user-check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m16 11 2 2 4-4"></path><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
+</div>
+<h3 class="text-lg font-bold uppercase tracking-tight text-brand-charcoal mb-2 group-hover:text-brand-burgundy transition-colors">
+            Experienced Professionals
+          </h3>
+<p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+            Every technician is thoroughly background-checked, drug-tested, and certified under strict industry codes.
+          </p>
+</div>
+<!-- Block 2 -->
+<div class="reveal delay-200 bg-brand-greyBg p-8 rounded-2xl border border-gray-200 hover:border-brand-burgundy/50 hover:bg-white hover:shadow-card-hover transition-all-300 transform hover:-translate-y-1.5 text-center group">
+<div class="w-16 h-16 rounded-2xl bg-white border border-gray-200 flex items-center justify-center mx-auto mb-6 text-brand-burgundy group-hover:bg-brand-burgundy group-hover:text-white group-hover:rotate-6 transition-all shadow-sm">
+<svg class="lucide lucide-clock-alert w-8 h-8" data-lucide="clock-alert" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6l4 2"></path><path d="M20 12v5"></path><path d="M20 21h.01"></path><path d="M21.25 8.2A10 10 0 1 0 16 21.16"></path></svg>
+</div>
+<h3 class="text-lg font-bold uppercase tracking-tight text-brand-charcoal mb-2 group-hover:text-brand-burgundy transition-colors">
+            Reliable Service
+          </h3>
+<p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+            Prompt arrivals, courteous communication, and guaranteed appointment windows so your day is never stalled.
+          </p>
+</div>
+<!-- Block 3 -->
+<div class="reveal delay-300 bg-brand-greyBg p-8 rounded-2xl border border-gray-200 hover:border-brand-burgundy/50 hover:bg-white hover:shadow-card-hover transition-all-300 transform hover:-translate-y-1.5 text-center group">
+<div class="w-16 h-16 rounded-2xl bg-white border border-gray-200 flex items-center justify-center mx-auto mb-6 text-brand-burgundy group-hover:bg-brand-burgundy group-hover:text-white group-hover:rotate-6 transition-all shadow-sm">
+<svg class="lucide lucide-shield-check w-8 h-8" data-lucide="shield-check" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
+</div>
+<h3 class="text-lg font-bold uppercase tracking-tight text-brand-charcoal mb-2 group-hover:text-brand-burgundy transition-colors">
+            Quality Workmanship
+          </h3>
+<p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+            We use heavy-gauge brass, industrial-grade copper, and premium materials covered by extensive warranty.
+          </p>
+</div>
+<!-- Block 4 -->
+<div class="reveal delay-400 bg-brand-greyBg p-8 rounded-2xl border border-gray-200 hover:border-brand-burgundy/50 hover:bg-white hover:shadow-card-hover transition-all-300 transform hover:-translate-y-1.5 text-center group">
+<div class="w-16 h-16 rounded-2xl bg-white border border-gray-200 flex items-center justify-center mx-auto mb-6 text-brand-burgundy group-hover:bg-brand-burgundy group-hover:text-white group-hover:rotate-6 transition-all shadow-sm">
+<svg class="lucide lucide-smile w-8 h-8" data-lucide="smile" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" x2="9.01" y1="9" y2="9"></line><line x1="15" x2="15.01" y1="9" y2="9"></line></svg>
+</div>
+<h3 class="text-lg font-bold uppercase tracking-tight text-brand-charcoal mb-2 group-hover:text-brand-burgundy transition-colors">
+            Customer Satisfaction
+          </h3>
+<p class="text-gray-600 text-xs sm:text-sm leading-relaxed">
+            100% commitment to getting the job done right the first time, leaving your home spotless after every call.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 7: EDITABLE STATISTICS ==================== -->
+<section class="py-16 bg-brand-charcoal text-white relative overflow-hidden border-t border-brand-silver/20">
+<div class="absolute inset-0 bg-gradient-to-r from-brand-maroon/20 via-transparent to-brand-burgundy/20 pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<!-- Informative editable note -->
+<div class="reveal text-center mb-10">
+<span class="text-[11px] font-semibold tracking-wider text-brand-silver uppercase bg-white/5 py-1 px-3 rounded-full border border-white/10">
+          Editable Operational Milestones
+        </span>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+<div class="reveal delay-100 p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight mb-2">20+</div>
+<p class="text-brand-silver font-semibold text-xs sm:text-sm uppercase tracking-wider">Years of Experience</p>
+</div>
+<div class="reveal delay-200 p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="text-4xl sm:text-5xl font-black text-brand-burgundy font-heading tracking-tight mb-2">1000+</div>
+<p class="text-brand-silver font-semibold text-xs sm:text-sm uppercase tracking-wider">Projects Completed</p>
+</div>
+<div class="reveal delay-300 p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="text-4xl sm:text-5xl font-black text-white font-heading tracking-tight mb-2">100%</div>
+<p class="text-brand-silver font-semibold text-xs sm:text-sm uppercase tracking-wider">Customer Commitment</p>
+</div>
+<div class="reveal delay-400 p-4 transform hover:scale-105 transition-transform duration-300">
+<div class="text-4xl sm:text-5xl font-black text-brand-burgundy font-heading tracking-tight mb-2">24/7</div>
+<p class="text-brand-silver font-semibold text-xs sm:text-sm uppercase tracking-wider">Service Availability</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 8: FULL-WIDTH CALL TO ACTION ==================== -->
+<section class="py-20 bg-gradient-to-r from-brand-maroon via-brand-burgundy to-brand-charcoal text-white relative shadow-2xl overflow-hidden">
+<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6 relative z-10">
+<div class="reveal inline-flex items-center gap-2 bg-black/30 border border-white/20 px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest text-brand-silverLight">
+<svg class="lucide lucide-zap w-4 h-4 text-amber-400 animate-bounce" data-lucide="zap" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg> Fast Response Dispatch
+      </div>
+<h2 class="reveal delay-100 text-3xl sm:text-5xl font-black uppercase tracking-tight text-white leading-tight">
+        NEED A PLUMBER? WE'RE HERE TO HELP!
+      </h2>
+<p class="reveal delay-200 text-base sm:text-xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed">
+        Don't let plumbing problems disrupt your day. Get in touch with The Plumbing Company today.
+      </p>
+<div class="reveal delay-300 pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+<a class="btn-shimmer group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-white text-brand-burgundy hover:bg-brand-silverLight font-extrabold text-sm uppercase tracking-wider px-9 py-4 rounded-lg shadow-2xl transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0" href="#contact">
+<span>REQUEST YOUR SERVICE</span>
+<svg class="lucide lucide-calendar w-4 h-4 transition-transform group-hover:scale-110" data-lucide="calendar" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect height="18" rx="2" width="18" x="3" y="4"></rect><path d="M3 10h18"></path></svg>
+</a>
+<a class="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border-2 border-white/80 hover:bg-white/10 text-white font-extrabold text-sm uppercase tracking-wider px-8 py-4 rounded-lg transition-all duration-300 transform hover:-translate-y-0.5" href="tel:18005550199">
+<svg class="lucide lucide-phone-call w-4 h-4 transition-transform group-hover:scale-110" data-lucide="phone-call" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M13 2a9 9 0 0 1 9 9"></path><path d="M13 6a5 5 0 0 1 5 5"></path><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+<span>CALL [1-800-555-0199]</span>
+</a>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 9: CONTACT SECTION ==================== -->
+<section class="py-20 bg-brand-greyBg" id="contact">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="reveal text-center max-w-3xl mx-auto mb-16 space-y-3">
+<span class="text-xs font-extrabold tracking-widest uppercase text-brand-burgundy">Reach Out Anytime</span>
+<h2 class="text-3xl sm:text-4xl font-black uppercase tracking-tight text-brand-charcoal">
+          CONTACT OUR PLUMBING TEAM
+        </h2>
+<div class="w-16 h-1 bg-brand-burgundy mx-auto rounded-full"></div>
+<p class="text-gray-600 text-sm sm:text-base pt-2">
+          Schedule an estimate or request urgent emergency dispatch. Fill out our simple form below.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Contact Form (Functional with Validation) -->
+<div class="reveal-left lg:col-span-7 bg-white rounded-2xl p-8 sm:p-10 border border-gray-200 shadow-premium transition-all-300 hover:shadow-card-hover">
+<h3 class="text-xl font-bold uppercase tracking-tight text-brand-charcoal mb-6 flex items-center gap-2">
+<svg class="lucide lucide-file-text w-5 h-5 text-brand-burgundy" data-lucide="file-text" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"></path><path d="M14 2v4a2 2 0 0 0 2 2h4"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg> Schedule A Service Appointment
+          </h3>
+<form class="space-y-5" id="contactForm" onsubmit="event.preventDefault(); handleFormSubmit();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5" for="fullName">Full Name *</label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-burgundy focus:border-brand-burgundy text-sm text-gray-900 outline-none transition-all duration-200" id="fullName" placeholder="John Doe" required="" type="text"/>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5" for="phone">Phone Number *</label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-burgundy focus:border-brand-burgundy text-sm text-gray-900 outline-none transition-all duration-200" id="phone" placeholder="(555) 000-0000" required="" type="tel"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5" for="email">Email Address *</label>
+<input class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-burgundy focus:border-brand-burgundy text-sm text-gray-900 outline-none transition-all duration-200" id="email" placeholder="john@example.com" required="" type="email"/>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5" for="serviceSelect">Select Service *</label>
+<select class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-burgundy focus:border-brand-burgundy text-sm text-gray-900 outline-none transition-all duration-200 bg-white" id="serviceSelect" required="">
+<option disabled="" selected="" value="">Choose a plumbing service...</option>
+<option value="leak-repair">Leak Repair</option>
+<option value="pipe-install">Pipe Installation &amp; Repair</option>
+<option value="drain-cleaning">Drain Cleaning</option>
+<option value="emergency">Emergency Plumbing</option>
+<option value="water-heater">Water Heater Services</option>
+<option value="bathroom">Bathroom Plumbing</option>
+<option value="faucet-fixture">Faucet &amp; Fixture Installation</option>
+<option value="toilet-repair">Toilet Repair</option>
+<option value="general-maintenance">General Plumbing Maintenance</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-1.5" for="message">Message / Issue Details</label>
+<textarea class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-brand-burgundy focus:border-brand-burgundy text-sm text-gray-900 outline-none transition-all duration-200" id="message" placeholder="Briefly describe the plumbing issue, address location, or requested schedule..." rows="4"></textarea>
+</div>
+<div class="hidden p-4 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium transition-all duration-300" id="formSuccess">
+<span class="font-bold">Thank you!</span> Your request has been received. Our dispatch team will contact you shortly to confirm your booking.
+            </div>
+<button class="btn-shimmer w-full bg-brand-burgundy hover:bg-brand-maroon text-white font-bold text-sm uppercase tracking-wider py-4 rounded-lg shadow-burgundy-glow hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0" type="submit">
+              Submit Request
+            </button>
+</form>
+</div>
+<!-- Editable Contact Information & Map -->
+<div class="reveal-right lg:col-span-5 space-y-6">
+<div class="bg-white rounded-2xl p-8 border border-gray-200 shadow-premium space-y-6 transition-all-300 hover:shadow-card-hover">
+<h3 class="text-xl font-bold uppercase tracking-tight text-brand-charcoal mb-4">
+              Company Information
+            </h3>
+<!-- Phone -->
+<div class="flex items-start space-x-4 group cursor-default">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-brand-burgundy group-hover:text-white">
+<svg class="lucide lucide-phone w-5 h-5" data-lucide="phone" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+</div>
+<div>
+<p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Phone Number (24/7)</p>
+<a class="text-base font-bold text-brand-charcoal hover:text-brand-burgundy transition-colors duration-200" href="tel:18005550199">[1-800-555-0199]</a>
+<p class="text-[11px] text-gray-400 mt-0.5">Clickable telephone link</p>
+</div>
+</div>
+<!-- Email -->
+<div class="flex items-start space-x-4 group cursor-default">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-brand-burgundy group-hover:text-white">
+<svg class="lucide lucide-mail w-5 h-5" data-lucide="mail" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect height="16" rx="2" width="20" x="2" y="4"></rect></svg>
+</div>
+<div>
+<p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Email Address</p>
+<a class="text-base font-bold text-brand-charcoal hover:text-brand-burgundy transition-colors duration-200" href="mailto:service@theplumbingcompany.com">[service@theplumbingcompany.com]</a>
+<p class="text-[11px] text-gray-400 mt-0.5">Direct dispatch inbox</p>
+</div>
+</div>
+<!-- Address -->
+<div class="flex items-start space-x-4 group cursor-default">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-brand-burgundy group-hover:text-white">
+<svg class="lucide lucide-map-pin w-5 h-5" data-lucide="map-pin" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+</div>
+<div>
+<p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Business Address</p>
+<p class="text-base font-bold text-brand-charcoal">[1248 Industrial Parkway, Suite 300, Dallas, TX 75201]</p>
+<p class="text-[11px] text-gray-400 mt-0.5">Central Hub &amp; Warehouse</p>
+</div>
+</div>
+<!-- Hours -->
+<div class="flex items-start space-x-4 group cursor-default">
+<div class="w-10 h-10 rounded-lg bg-brand-burgundy/10 text-brand-burgundy flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:bg-brand-burgundy group-hover:text-white">
+<svg class="lucide lucide-clock w-5 h-5" data-lucide="clock" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12 6v6l4 2"></path><circle cx="12" cy="12" r="10"></circle></svg>
+</div>
+<div>
+<p class="text-xs font-bold text-gray-500 uppercase tracking-wider">Business Hours</p>
+<p class="text-sm font-semibold text-brand-charcoal">Monday – Friday: 7:00 AM – 7:00 PM</p>
+<p class="text-sm font-semibold text-brand-charcoal">Saturday: 8:00 AM – 4:00 PM</p>
+<p class="text-xs font-bold text-brand-burgundy mt-1">24/7 On-Call Emergency Service</p>
+</div>
+</div>
+</div>
+<!-- Google Maps Embed Placeholder -->
+<div class="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-premium transition-all-300 hover:shadow-card-hover">
+<div class="relative w-full h-56 bg-gray-200">
+<iframe allowfullscreen="" class="w-full h-full grayscale hover:grayscale-0 transition-all duration-500" height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107310.23376916513!2d-96.87158788916327!3d32.82087508316139!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9915998ad759%3A0xc6cb6239160d5b!2sDallas%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" style="border:0;" title="Google Maps Business Location Placeholder" width="100%">
+</iframe>
+<div class="absolute bottom-2 left-2 bg-brand-charcoal/90 text-white text-[10px] font-bold py-1 px-2.5 rounded shadow">
+                Google Maps Location Placeholder
+              </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== SECTION 10: PREMIUM DARK CHARCOAL FOOTER ==================== -->
+<footer class="bg-brand-charcoal text-white pt-16 pb-8 border-t-4 border-brand-burgundy">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+<!-- Col 1: Brand & Bio -->
+<div class="reveal delay-100 lg:col-span-4 space-y-4">
+<div class="bg-white p-3 rounded-xl inline-block transition-transform duration-300 hover:scale-105">
+<img alt="The Plumbing Company Brand Logo" class="h-10 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr_7KDrpvqDSDdegaueIpR5IsLstgCbQ_Nssol3IWOvtuPe5bjj5t_4ye0yAMiNL9kyZF2XT3oOhph9JLAa5biN50qK26CR0oKF7J7gP3twmwLjX_1zl11TOE2FKRCSnPnvv7Khsofosb7eNyDSsYUuTvqwH1rIrrc8WbFVqLR9P4qghITIykscYMo0RdHKgBZ9tbUbfs9GDpAE525YDm5K3BKNRXBB6FATor1FPbpU90aE-mlY2L_xA"/>
+</div>
+<p class="text-xs sm:text-sm text-brand-silver leading-relaxed pr-4">
+            The Plumbing Company has delivered dependable residential and commercial plumbing installations, repairs, and diagnostics since 2005. Engineered quality, guaranteed safety, and honest service.
+          </p>
+<!-- Social Media Icons -->
+<div class="flex items-center space-x-3 pt-2">
+<a class="w-9 h-9 rounded-lg bg-white/5 hover:bg-brand-burgundy text-brand-silver hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1" href="#">
+<svg class="lucide lucide-facebook w-4 h-4" data-lucide="facebook" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+</a>
+<a class="w-9 h-9 rounded-lg bg-white/5 hover:bg-brand-burgundy text-brand-silver hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1" href="#">
+<svg class="lucide lucide-instagram w-4 h-4" data-lucide="instagram" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+</a>
+<a class="w-9 h-9 rounded-lg bg-white/5 hover:bg-brand-burgundy text-brand-silver hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1" href="#">
+<svg class="lucide lucide-linkedin w-4 h-4" data-lucide="linkedin" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect height="12" width="4" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+</a>
+<a class="w-9 h-9 rounded-lg bg-white/5 hover:bg-brand-burgundy text-brand-silver hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1" href="#">
+<svg class="lucide lucide-twitter w-4 h-4" data-lucide="twitter" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+</a>
+</div>
+</div>
+<!-- Col 2: Quick Links -->
+<div class="reveal delay-200 lg:col-span-2 space-y-3">
+<h4 class="text-sm font-bold uppercase tracking-wider text-white border-l-2 border-brand-burgundy pl-2.5">
+            Quick Links
+          </h4>
+<ul class="space-y-2 text-xs sm:text-sm text-brand-silver">
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#hero">Home</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#about">About Us</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#services">Services</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#why-us">Why Choose Us</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#contact">Contact</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#contact">Request Service</a></li>
+</ul>
+</div>
+<!-- Col 3: Our Services -->
+<div class="reveal delay-300 lg:col-span-3 space-y-3">
+<h4 class="text-sm font-bold uppercase tracking-wider text-white border-l-2 border-brand-burgundy pl-2.5">
+            Our Services
+          </h4>
+<ul class="space-y-2 text-xs sm:text-sm text-brand-silver">
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#services">Leak Detection &amp; Repair</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#services">Pipe Installation &amp; Repair</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#services">Drain Cleaning &amp; Jetting</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#services">Emergency Plumbing 24/7</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#services">Water Heater Installation</a></li>
+<li><a class="hover:text-white transition-colors duration-200 hover:translate-x-1 inline-block" href="#services">Bathroom Fixtures &amp; Toilets</a></li>
+</ul>
+</div>
+<!-- Col 4: Contact Information -->
+<div class="reveal delay-400 lg:col-span-3 space-y-3">
+<h4 class="text-sm font-bold uppercase tracking-wider text-white border-l-2 border-brand-burgundy pl-2.5">
+            Contact Us
+          </h4>
+<div class="space-y-2 text-xs sm:text-sm text-brand-silver">
+<p class="flex items-center gap-2">
+<svg class="lucide lucide-phone w-4 h-4 text-brand-burgundy" data-lucide="phone" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path></svg>
+<a class="hover:text-white transition-colors duration-200" href="tel:18005550199">[1-800-555-0199]</a>
+</p>
+<p class="flex items-center gap-2">
+<svg class="lucide lucide-mail w-4 h-4 text-brand-burgundy" data-lucide="mail" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect height="16" rx="2" width="20" x="2" y="4"></rect></svg>
+<a class="hover:text-white transition-colors duration-200" href="mailto:service@theplumbingcompany.com">[service@theplumbingcompany.com]</a>
+</p>
+<p class="flex items-start gap-2">
+<svg class="lucide lucide-map-pin w-4 h-4 text-brand-burgundy mt-1" data-lucide="map-pin" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>[1248 Industrial Parkway, Suite 300, Dallas, TX 75201]</span>
+</p>
+<div class="pt-2">
+<span class="inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-brand-burgundy text-white shadow-sm">
+                Available 24/7 For Emergencies
+              </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Copyright Bottom Bar -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-brand-silver/60">
+<p>© 2026 The Plumbing Company. All Rights Reserved.</p>
+<div class="flex items-center space-x-6 mt-4 sm:mt-0">
+<a class="hover:text-white transition-colors duration-200" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors duration-200" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors duration-200" href="#">Master License #MP-02005</a>
+</div>
+</div>
+</div>
+</footer>
+<!-- ==================== FLOATING WHATSAPP / CONTACT BUTTON ==================== -->
+<a aria-label="Contact on WhatsApp" class="animate-float-wa animate-pulse-ring fixed bottom-6 right-6 z-40 bg-emerald-600 hover:bg-emerald-500 text-white p-3.5 rounded-full shadow-2xl flex items-center justify-center gap-2 border-2 border-white transition-all duration-300 hover:scale-110 group" href="https://wa.me/18005550199" rel="noopener noreferrer" target="_blank">
+<svg class="lucide lucide-message-circle w-6 h-6 transition-transform group-hover:rotate-12" data-lucide="message-circle" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path></svg>
+<span class="hidden md:group-hover:inline-block text-xs font-bold uppercase tracking-wider pr-1 whitespace-nowrap transition-all duration-300">WhatsApp Chat</span>
+</a>
+<!-- Script Initializations & Scroll-Triggered Reveals -->
+<script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+      // Close mobile menu on link click
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+        });
+      });
+    }
+
+    // Scroll Reveal Observer
+    document.addEventListener('DOMContentLoaded', () => {
+      const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+      
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          root: null,
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        // Fallback for older browsers
+        revealElements.forEach(el => el.classList.add('active'));
+      }
+    });
+
+    // Form submission handler
+    function handleFormSubmit() {
+      const successBox = document.getElementById('formSuccess');
+      if (successBox) {
+        successBox.classList.remove('hidden');
+        document.getElementById('contactForm').reset();
+        setTimeout(() => {
+          successBox.classList.add('hidden');
+        }, 8000);
+      }
+    }
+  </script>
+</body></html>
